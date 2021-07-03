@@ -12,7 +12,5 @@ int main()
     scanf("%s", &filename);
 
     FILE *inputFile = fopen(*filename, "r");
-    FiniteStateMachine* fsm = parseFile(inputFile);
-    
-    close(inputFile);
+    FiniteStateMachine *fsm = parseFile(inputFile);
 }

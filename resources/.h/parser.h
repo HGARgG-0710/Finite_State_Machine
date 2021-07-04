@@ -17,13 +17,14 @@ typedef struct
 } CharKeyValue;
 
 FiniteStateMachine *parseFile(FILE *);
-KeyValue *parseArray(char *, int);
+char *parseArray(const char *, int *);
 int indexOf(const int[2], const char (*)[], const char *);
 void initCharKeyValue(KeyValue *);
-int *longestValue(const FILE *, const int);
-char *readWhile(const FILE *, const int *, int (*)(const char));
+int longestValue(const char *, const int, const int);
+char *readWhile(const char *, const int *, int (*)(const char));
 int isWhitespace(const int);
 int isInArray(const int *, const char *, const char **);
-int isUnique(const char character);
+int isUnique(const char);
+char *deleteSpaces(FILE *);
 
 #endif

@@ -13,4 +13,5 @@ int main()
 
     FILE *inputFile = fopen(*filename, "r");
     FiniteStateMachine *fsm = parseFile(inputFile);
+    processStateChange(fsm);
 }

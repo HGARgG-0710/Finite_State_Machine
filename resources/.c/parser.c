@@ -28,13 +28,18 @@ FiniteStateMachine *parseFile(FILE *inputFile)
 
     for (char currChar, i = 0; i < length; i++)
     {
-        currKey = readWhile(cleanedFile, i, !isUnique);
+        currKey = readWhile(cleanedFile, &i, !isUnique);
         currChar = cleanedFile[++i]; // skiping the ":" unique
-        currValue = currChar == "{" ? parseArray(cleanedFile, &i) : readWhile(cleanedFile, i, !isUnique);
+        currValue = currChar == "{" ? parseArray(cleanedFile, &i) : readWhile(cleanedFile, &i, !isUnique);
+
+        // TODO: Add the value currValue to the key currKey in the pairs CharKeyValue struct
+        // ! For this, write special procedures, addPair() and deletePair()
 
         free(currKey);
         free(currValue);
     }
+
+    free(cleanedFile);
 
     // TODO: Init finite state machine.
     FiniteStateMachine fsm;
@@ -164,7 +169,7 @@ char *deleteSpaces(FILE *inputFile)
         if (isWhitespace(currChar))
         {
             i--;
-            break;
+            continue;
         }
 
         cleared[i] = currChar;

@@ -16,8 +16,7 @@ void processStateChange(FiniteStateMachine *fsm)
         // Check if the inputted transition is in the fms->transitions or not.
         // If so, then change the fsm->currState field using the fsm pointer.
         // else, printf("Sorry, the inputted transition is not specified in the FSM configuration.")
-        // ! For this, use the indexOf() function, that you've written. (prefered)
-        // ! Or write the new function, that would use the indexOf() function to check whether the word is in the list.
+        // ! For this, use the isInArray() function, you have written earlier.
 
     } while (strcmp(currTransition, *fsm->exitWord));
 
